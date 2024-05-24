@@ -1,0 +1,49 @@
+# apiVersion: admissionregistration.k8s.io/v1
+# kind: MutatingWebhookConfiguration
+# metadata:
+#   name: harrison-webhook
+# webhooks:
+#   - name: harrison-admission.default.svc
+#     admissionReviewVersions:
+#       - "v1beta1"
+#     sideEffects: "None"
+#     timeoutSeconds: 30
+#     clientConfig:
+#       service:
+#         name: harrison-admission
+#         namespace: default
+#         path: "/mutate"
+#       caBundle: "${CA_BUNDLE}"
+#     rules:
+#       - operations: [ "CREATE", "UPDATE", "DELETE" ]
+#         apiGroups: ["functions.harrison-technology.net"]
+#         apiVersions: ["valpha1"]
+#         resources: ["functions"]
+
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingWebhookConfiguration
+metadata:
+  name: harrison-webhook
+webhooks:
+  - name: harrison-admission.default.svc
+    admissionReviewVersions:
+      - "v1beta1"
+    sideEffects: "None"
+    timeoutSeconds: 30
+    # objectSelector:
+    #   matchLabels:
+    #     admission-webhook: enabled
+    namespaceSelector:
+      matchLabels:
+        admission-webhook: enabled    
+    clientConfig:
+      service:
+        name: harrison-admission
+        namespace: default
+        path: "/mutate"
+      caBundle: "${CA_BUNDLE}"
+    rules:
+      - operations: [ "CREATE", "UPDATE", "DELETE" ]
+        apiGroups: [""]
+        apiVersions: ["v1"]
+        resources: ["pods"]
