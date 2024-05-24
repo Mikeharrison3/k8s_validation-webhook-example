@@ -10,7 +10,7 @@ mkdir certs
 cfssl gencert -initca ./deployment/ca-csr.json | cfssljson -bare ./certs/ca
 
 #generate certificate in 
-certs
+
 cfssl gencert \
   -ca=./certs/ca.pem \
   -ca-key=./certs/ca-key.pem \

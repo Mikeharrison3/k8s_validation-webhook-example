@@ -7,7 +7,7 @@ https://github.com/douglasmakey/admissioncontroller
 
 https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/
 
-## How to get started?
+## What is going to happen?
 
 Below is all scripted out in install.sh but the overview is
 
@@ -35,3 +35,30 @@ For the second reason, I have a another project that this became handy. This rep
 In a very high detailed overview I am using an webadmission webhook to do authentication with another project and injects secrets into the pod. Could it have been done differently? Yes, I decided to go this route. 
 
 
+### Full documentation on what is happening?
+
+Coming soon: [will update when I have the blog post finished.]
+
+
+## How to get started?
+
+* Spin up a kubernetes cluster. I recomend K3d.
+* Build the docker file, which will compile the code as well.
+    ```
+    docker build . --tag  [your docker repo]
+    ```
+* Update deployment/deployment.yaml image to you rrepo.
+* Run deployment.install.sh
+* Deploy test pod manifest.
+    ```
+    kubectl -n test apply -f deployment/pod-test.yaml
+    ```
+
+** The code will fail on when the name is **testname** and   **admission-webhook** label is set enable.
+
+** The code will mutate the pod and set an env var value when name is **pod1**
+
+
+### Can this code be used to make cool stuff?
+
+Yes, This is a good very basic base to get you started.
