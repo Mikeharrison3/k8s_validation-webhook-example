@@ -26,7 +26,7 @@ Below is all scripted out in install.sh but the overview is
 
 ## Why?
 
-For the primary reason I like to understand how something underneath works. Having a good understanding how something works behind the currents providers the oportunity for better troubleshooting skills. 
+For the primary reason I like to understand how something underneath works. Having a good understanding how something works behind the currents providers the opportunity for better troubleshooting skills. 
 
 For the second reason, I have a another project that this became handy. This repo was created a while ago to have the understanding and utilize webadmission hooks for it.
 
