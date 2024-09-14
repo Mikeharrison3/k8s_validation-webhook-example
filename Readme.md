@@ -42,12 +42,12 @@ Coming soon: [will update when I have the blog post finished.]
 
 ## How to get started?
 
-* Spin up a kubernetes cluster. I recomend K3d.
+* Spin up a kubernetes cluster. I recommend K3d.
 * Build the docker file, which will compile the code as well.
     ```
     docker build . --tag  [your docker repo]
     ```
-* Update deployment/deployment.yaml image to you rrepo.
+* Update deployment/deployment.yaml image to your repo.
 * Run deployment.install.sh
 * Deploy test pod manifest.
     ```
